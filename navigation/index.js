@@ -8,6 +8,7 @@ const Drawer = createDrawerNavigator();
 
 import CustomDrawerContent from '../components/CustomDrawerContent';
 
+import Login from '../screens/Drawer/Login';
 import Sobre from '../screens/Drawer/Sobre';
 import Inicio from '../screens/Drawer/Inicio';
 import Eventos from '../screens/Drawer/Eventos';
@@ -31,6 +32,7 @@ export function DrawerNavigation() {
                 headerTitleAlign: 'center'
             }} drawerContent={(props) => <CustomDrawerContent {...props} />} >
                 <Drawer.Screen name="Inicio" component={Inicio} />
+                <Drawer.Screen options={{ title: '' }} name="Fazer Login" component={Login} />
                 <Drawer.Screen name="Calendario" component={Calendario} />
                 <Drawer.Screen name="Restaurantes" component={Restaurantes} />
                 <Drawer.Screen name="Transporte" component={Transportes} />

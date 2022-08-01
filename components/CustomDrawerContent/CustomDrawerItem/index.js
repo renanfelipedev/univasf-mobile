@@ -6,6 +6,8 @@ const getIcon = (screenName) => {
     switch (screenName) {
         case 'Inicio':
             return 'home';
+        case 'Fazer Login':
+            return 'login-variant';
         case 'Calendario':
             return 'calendar';
         case 'Restaurantes':
