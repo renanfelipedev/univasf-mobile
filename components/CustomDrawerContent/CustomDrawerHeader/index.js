@@ -9,7 +9,7 @@ export default function CustomDrawerHeader() {
             <Text fontSize="14" mt="1" color="gray.500" fontWeight="500">
                 usuario@email.com
             </Text>
-            <Button mt="2" rounded="md" onPress={() => console.log('Pressed')} size="sm">
+            <Button mt="2" rounded="md" size="sm" variant='outline' colorScheme='red' onPress={() => console.log('Sair')} >
                 Sair
             </Button>
         </Box>

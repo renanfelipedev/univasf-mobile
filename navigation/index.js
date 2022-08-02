@@ -19,18 +19,22 @@ import Restaurantes from '../screens/Drawer/Restaurantes';
 
 export function DrawerNavigation() {
     return (
-        <Box safeArea flex={1}>
+        <Box safeArea flex={1} >
             {/* <StatusBar style='light' backgroundColor='#0289e0' /> */}
-            <Drawer.Navigator screenOptions={{
-                headerStyle: {
-                    backgroundColor: '#0289e0',
-                },
-                headerTintColor: '#FFF',
-                headerTitleStyle: {
-                    fontWeight: 'bold',
-                },
-                headerTitleAlign: 'center'
-            }} drawerContent={(props) => <CustomDrawerContent {...props} />} >
+            <Drawer.Navigator
+                initialRouteName='Restaurantes'
+                screenOptions={{
+                    headerStyle: {
+                        backgroundColor: '#0289e0',
+                    },
+                    headerTintColor: '#FFF',
+                    headerTitleStyle: {
+                        fontWeight: 'bold',
+                    },
+                    headerTitleAlign: 'center'
+                }}
+                drawerContent={(props) => <CustomDrawerContent {...props} />}
+            >
                 <Drawer.Screen name="Inicio" component={Inicio} />
                 <Drawer.Screen options={{ title: '' }} name="Fazer Login" component={Login} />
                 <Drawer.Screen name="Calendario" component={Calendario} />
