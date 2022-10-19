@@ -4,7 +4,7 @@ export default function Inicio() {
   return (
     <Center>
       <Text mt="12" fontSize="18">
-        Início.
+        Tela inicial
       </Text>
     </Center>
   );

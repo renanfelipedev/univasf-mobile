@@ -1,5 +1,4 @@
 import { Box } from 'native-base'
-import { StatusBar } from 'expo-status-bar';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -17,22 +16,23 @@ import Calendario from '../screens/Drawer/Calendario';
 import Transportes from '../screens/Drawer/Transporte';
 import Restaurantes from '../screens/Drawer/Restaurantes';
 
+const screenOptions = {
+    headerStyle: {
+        backgroundColor: '#0289e0',
+    },
+    headerTintColor: '#FFF',
+    headerTitleStyle: {
+        fontWeight: 'bold',
+    },
+    headerTitleAlign: 'center'
+}
+
 export function DrawerNavigation() {
     return (
         <Box safeArea flex={1} >
-            {/* <StatusBar style='light' backgroundColor='#0289e0' /> */}
             <Drawer.Navigator
-                initialRouteName='Restaurantes'
-                screenOptions={{
-                    headerStyle: {
-                        backgroundColor: '#0289e0',
-                    },
-                    headerTintColor: '#FFF',
-                    headerTitleStyle: {
-                        fontWeight: 'bold',
-                    },
-                    headerTitleAlign: 'center'
-                }}
+                initialRouteName='Inicio'
+                screenOptions={screenOptions}
                 drawerContent={(props) => <CustomDrawerContent {...props} />}
             >
                 <Drawer.Screen name="Inicio" component={Inicio} />

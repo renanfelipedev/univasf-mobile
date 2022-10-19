@@ -5,7 +5,7 @@ export default function Transporte() {
     return (
         <View style={styles.container}>
             <StatusBar style="auto" />
-            <Text style={{ fontSize: 35 }}>Calendario</Text>
+            <Text style={{ fontSize: 35 }}>Informações de transporte</Text>
         </View>
     );
 }

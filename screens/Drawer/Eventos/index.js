@@ -5,7 +5,7 @@ export default function Eventos() {
     return (
         <View style={styles.container}>
             <StatusBar style="auto" />
-            <Text style={{ fontSize: 35 }}>Calendario</Text>
+            <Text style={{ fontSize: 35 }}>Eventos</Text>
         </View>
     );
 }
