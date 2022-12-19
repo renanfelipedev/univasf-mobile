@@ -5,21 +5,21 @@ import CustomDrawerItem from './CustomDrawerItem';
 import CustomDrawerHeader from './CustomDrawerHeader';
 
 export default function CustomDrawerContent({ state, ...props }) {
-    const { routeNames } = state;
+  const { routeNames } = state;
 
-    return (
-        <DrawerContentScrollView {...props} safeArea>
-            <VStack space="8" my="2" mx="1">
-                <CustomDrawerHeader />
+  return (
+    <DrawerContentScrollView {...props} safeArea>
+      <VStack space="8" my="2" mx="1">
+        <CustomDrawerHeader />
 
-                <Divider />
+        <Divider />
 
-                <VStack divider={<Divider />} space="4">
-                    <VStack space="3">
-                        {routeNames.map((name, index) => <CustomDrawerItem key={name} name={name} selected={index === state.index} />)}
-                    </VStack>
-                </VStack>
-            </VStack>
-        </DrawerContentScrollView>
-    );
+        <VStack divider={<Divider />} space="4">
+          <VStack space="3">
+            {routeNames.map((name, index) => <CustomDrawerItem key={name} name={name} selected={index === state.index} />)}
+          </VStack>
+        </VStack>
+      </VStack>
+    </DrawerContentScrollView>
+  );
 }
