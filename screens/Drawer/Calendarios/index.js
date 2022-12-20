@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Box, Heading, Text, Pressable, Stack, Icon, HStack } from 'native-base'
 
@@ -23,7 +21,7 @@ export default function Calendarios({ navigation }) {
   return calendarios.map((calendario) => (
     <Box alignItems="center" key={calendario.id} p={2}>
       <Box width={'100%'} rounded="lg" overflow="hidden" borderColor="coolGray.300" borderWidth="1" shadow="3" >
-        <Pressable onPress={() => console.log(calendario)}>
+        <Pressable onPress={() => navigation.navigate('Calendario', { id: calendario.id })}>
           <Stack p="4" space={3}>
             <Stack space={2}>
               <Heading size="md" ml="-1">{calendario.title}</Heading>

@@ -16,6 +16,8 @@ import Calendarios from '../screens/Drawer/Calendarios';
 import Transportes from '../screens/Drawer/Transporte';
 import Restaurantes from '../screens/Drawer/Restaurantes';
 
+import Calendario from '../screens/Stack/Calendario';
+
 const screenOptions = {
   headerStyle: {
     backgroundColor: '#0289e0',
@@ -37,7 +39,7 @@ export function DrawerNavigation() {
       >
         <Drawer.Screen name="Inicio" component={Inicio} />
         <Drawer.Screen options={{ title: '' }} name="Fazer Login" component={Login} />
-        <Drawer.Screen name="Calendarios" component={Calendarios} />
+        <Drawer.Screen name="Calendarios" component={CalendarioNavigation} />
         <Drawer.Screen name="Restaurantes" component={Restaurantes} />
         <Drawer.Screen name="Transporte" component={Transportes} />
         <Drawer.Screen name="Eventos" component={Eventos} />
@@ -48,10 +50,19 @@ export function DrawerNavigation() {
   );
 }
 
+export function CalendarioNavigation() {
+  return (
+    <Stack.Navigator initialRouteName='VerCalendarios'>
+      <Stack.Screen options={{ title: '', headerShown: false }} name="VerCalendarios" component={Calendarios} />
+      <Stack.Screen options={{ title: '' }} name="Calendario" component={Calendario} />
+    </Stack.Navigator>
+  );
+}
+
 export function StackNavigation() {
   return (
     <Stack.Navigator>
-      <Screen name="Restaurantes" component={Restaurantes} />
+
     </Stack.Navigator>
   );
 }
