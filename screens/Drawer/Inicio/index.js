@@ -25,13 +25,14 @@ export default function Inicio() {
       {noticias.map(noticia => (
         <Center mt={4} key={noticia.id}>
           <Box alignItems="center" >
-
             <Box maxW="80" rounded="lg" overflow="hidden" borderColor="coolGray.300" borderWidth="1" shadow="3" >
-              <Box>
-                <AspectRatio w='100%' ratio={16 / 9}>
-                  <Image resizeMode="contain" source={{ uri: noticia.image_url }} alt="image" />
-                </AspectRatio>
-              </Box>
+              {noticia.image_url && (
+                <Box>
+                  <AspectRatio w='100%' ratio={16 / 9}>
+                    <Image resizeMode="contain" source={{ uri: noticia.image_url }} alt="image" />
+                  </AspectRatio>
+                </Box>
+              )}
               <Stack p="4" space={3}>
                 <Stack space={2}>
                   <Heading size="md" ml="-1">{noticia.title}</Heading>

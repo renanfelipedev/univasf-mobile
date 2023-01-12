@@ -40,7 +40,7 @@ export function DrawerNavigation() {
         <Drawer.Screen name="Inicio" component={Inicio} />
         <Drawer.Screen options={{ title: '' }} name="Fazer Login" component={Login} />
         <Drawer.Screen name="Calendarios" component={CalendarioNavigation} />
-        <Drawer.Screen name="Restaurantes" component={Restaurantes} />
+        <Drawer.Screen name="Restaurantes" component={RestauranteNavigation} />
         <Drawer.Screen name="Transporte" component={Transportes} />
         <Drawer.Screen name="Eventos" component={Eventos} />
         <Drawer.Screen name="Contatos" component={Contatos} />
@@ -55,6 +55,14 @@ export function CalendarioNavigation() {
     <Stack.Navigator initialRouteName='VerCalendarios'>
       <Stack.Screen options={{ title: '', headerShown: false }} name="VerCalendarios" component={Calendarios} />
       <Stack.Screen options={{ title: '' }} name="Calendario" component={Calendario} />
+    </Stack.Navigator>
+  );
+}
+
+export function RestauranteNavigation() {
+  return (
+    <Stack.Navigator initialRouteName='VerRestaurantes'>
+      <Stack.Screen options={{ title: '', headerShown: false }} name="VerRestaurantes" component={Restaurantes} />
     </Stack.Navigator>
   );
 }
