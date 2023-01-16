@@ -13,11 +13,15 @@ import Inicio from '../screens/Drawer/Inicio';
 import Eventos from '../screens/Drawer/Eventos';
 import Contatos from '../screens/Drawer/Contatos';
 import Calendarios from '../screens/Drawer/Calendarios';
-import Transportes from '../screens/Drawer/Transporte';
+//import Transportes from '../screens/Drawer/Transporte';
 //import Restaurantes from '../screens/Drawer/Restaurantes';
 
 import Calendario from '../screens/Stack/Calendario';
+import Rotas from '../screens/Stack/Transportes/Rotas';
+import Transportes from '../screens/Stack/Transportes';
 import Restaurantes from '../screens/Stack/Restaurantes';
+import Paradas from '../screens/Stack/Transportes/Paradas';
+import Cardapio from '../screens/Stack/Restaurantes/Cardapio';
 
 
 const screenOptions = {
@@ -43,7 +47,7 @@ export function DrawerNavigation() {
         <Drawer.Screen options={{ title: '' }} name="Fazer Login" component={Login} />
         <Drawer.Screen name="Calendarios" component={CalendarioNavigation} />
         <Drawer.Screen name="Restaurantes" component={RestauranteNavigation} />
-        <Drawer.Screen name="Transporte" component={Transportes} />
+        <Drawer.Screen name="Transportes" component={TransporteNavigation} />
         <Drawer.Screen name="Eventos" component={Eventos} />
         <Drawer.Screen name="Contatos" component={Contatos} />
         <Drawer.Screen name="Sobre" component={Sobre} />
@@ -56,7 +60,7 @@ export function CalendarioNavigation() {
   return (
     <Stack.Navigator initialRouteName='VerCalendarios'>
       <Stack.Screen options={{ title: '', headerShown: false }} name="VerCalendarios" component={Calendarios} />
-      <Stack.Screen options={{ title: '' }} name="Calendario" component={Calendario} />
+      <Stack.Screen options={({ route }) => ({ title: route.params.name })} name="Calendario" component={Calendario} />
     </Stack.Navigator>
   );
 }
@@ -64,15 +68,18 @@ export function CalendarioNavigation() {
 export function RestauranteNavigation() {
   return (
     <Stack.Navigator initialRouteName='VerRestaurantes'>
-      <Stack.Screen options={{ title: '', headerShown: false }} name="VerRestaurantes" component={Restaurantes} />
+      <Stack.Screen options={{ headerShown: false }} name="VerRestaurantes" component={Restaurantes} />
+      <Stack.Screen options={({ route }) => ({ title: route.params.name })} name="Cardapio" component={Cardapio} />
     </Stack.Navigator>
   );
 }
 
-export function StackNavigation() {
+export function TransporteNavigation() {
   return (
     <Stack.Navigator>
-
+      <Stack.Screen options={{ headerShown: false }} name="VerTransportes" component={Transportes} />
+      <Stack.Screen options={({ route }) => ({ title: route.params.name })} name='Rotas' component={Rotas} />
+      <Stack.Screen options={({ route }) => ({ title: route.params.name })} name='Paradas' component={Paradas} />
     </Stack.Navigator>
   );
 }

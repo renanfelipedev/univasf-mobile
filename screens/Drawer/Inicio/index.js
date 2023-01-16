@@ -10,7 +10,7 @@ export default function Inicio() {
     api.get('/posts').then(({ data }) => {
       setNoticias(data);
     }).catch(error => {
-      console.log(error);
+      console.log(error.message);
     });
   }
 
@@ -19,13 +19,13 @@ export default function Inicio() {
   }, []);
 
   return (
-    <ScrollView>
+    <ScrollView onS>
       {!noticias && <Heading>Nenhuma notícia cadastrada!</Heading>}
 
       {noticias.map(noticia => (
         <Center mt={4} key={noticia.id}>
           <Box alignItems="center" >
-            <Box maxW="80" rounded="lg" overflow="hidden" borderColor="coolGray.300" borderWidth="1" shadow="3" >
+            <Box maxW="80" rounded="lg" overflow="hidden" borderColor="coolGray.300" borderWidth="1" >
               {noticia.image_url && (
                 <Box>
                   <AspectRatio w='100%' ratio={16 / 9}>

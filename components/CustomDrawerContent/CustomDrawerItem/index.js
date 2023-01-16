@@ -12,7 +12,7 @@ const getIcon = (screenName) => {
       return 'calendar';
     case 'Restaurantes':
       return 'silverware-fork-knife';
-    case 'Transporte':
+    case 'Transportes':
       return 'bus-multiple';
     case 'Eventos':
       return 'calendar-star';

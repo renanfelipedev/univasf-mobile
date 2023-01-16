@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ScrollView, Center, Text, Box, Heading, Stack, HStack, Link, Divider, Spacer, Badge } from 'native-base';
+import { ScrollView, Center, Text, Box, Heading, Stack, HStack, Link, Spacer, Badge } from 'native-base';
 
 import api from '../../../services/api';
 
@@ -24,7 +24,7 @@ export default function Eventos() {
       {eventos.map(evento => (
         <Center mt={4} key={evento.id}>
           <Box alignItems="center" >
-            <Box maxW="80" rounded="lg" overflow="hidden" borderColor="coolGray.300" borderWidth="1" shadow="3" >
+            <Box maxW="80" rounded="lg" overflow="hidden" borderColor="coolGray.300" borderWidth="1" >
               <Stack p="4" space={3}>
                 <Stack space={2}>
                   <Heading size="sm">{evento.title}</Heading>

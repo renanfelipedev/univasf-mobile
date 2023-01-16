@@ -22,21 +22,20 @@ export default function Calendarios({ navigation }) {
     <ScrollView>
       {calendarios && calendarios.map((calendario) => (
         <Box alignItems="center" key={calendario.id} p={2}>
-          <Box width={'100%'} rounded="lg" overflow="hidden" borderColor="coolGray.300" borderWidth="1" shadow="3" >
-            <Pressable onPress={() => navigation.navigate('Calendario', { id: calendario.id })}>
-              <Stack p="4" space={3}>
-                <Stack space={2}>
-                  <Heading size="md" ml="-1">{calendario.title}</Heading>
-                  <Text color='gray.500'>Início em {calendario.formatted_start_at} - Término em {calendario.formatted_end_at}</Text>
+          <Box width={'100%'} rounded="lg" overflow="hidden" borderColor="coolGray.300" borderWidth="1" >
+            <Pressable onPress={() => navigation.navigate('Calendario', { id: calendario.id, name: calendario.title })}>
+              <Stack p='4' space='3'>
+                <Heading size="md" ml="-1">{calendario.title}</Heading>
+                <Text color='gray.500'>Início em {calendario.formatted_start_at} - Término em {calendario.formatted_end_at}</Text>
 
-                  <HStack alignItems='center' justifyContent='space-between'>
-                    <Text fontWeight="medium" color="darkBlue.600">
-                      Ver calendário
-                    </Text>
-                    <Icon size="5" as={<MaterialCommunityIcons name="arrow-right" />} color="darkBlue.600" />
-                  </HStack>
-                </Stack>
+                <HStack alignItems='center' justifyContent='space-between'>
+                  <Text fontWeight="medium" color="darkBlue.600">
+                    Ver calendário
+                  </Text>
+                  <Icon size="5" as={<MaterialCommunityIcons name="arrow-right" />} color="darkBlue.600" />
+                </HStack>
               </Stack>
+
             </Pressable>
           </Box>
         </Box>
