@@ -23,7 +23,7 @@ export default function Inicio() {
       {!noticias && <Heading>Nenhuma notícia cadastrada!</Heading>}
 
       {noticias.map(noticia => (
-        <Center mt={4} key={noticia.id}>
+        <Center my="8" key={noticia.id}>
           <Box alignItems="center" >
             <Box maxW="80" rounded="lg" overflow="hidden" borderColor="coolGray.300" borderWidth="1" >
               {noticia.image_url && (

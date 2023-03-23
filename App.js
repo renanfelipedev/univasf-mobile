@@ -1,9 +1,10 @@
-import { NavigationContainer } from '@react-navigation/native';
 import { NativeBaseProvider } from 'native-base';
+import { NavigationContainer } from '@react-navigation/native';
 
-import { DrawerNavigation, StackNavigation } from './navigation';
+import { DrawerNavigation } from './navigation';
 
-//process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+import './configs/calendar.config';
+
 
 export default function App() {
   return (

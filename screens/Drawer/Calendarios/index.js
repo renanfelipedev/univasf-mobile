@@ -10,7 +10,6 @@ export default function Calendarios({ navigation }) {
   const buscarCalendarios = () => {
     api.get('/calendars').then(({ data }) => {
       setCalendarios(data);
-      console.log(calendarios);
     }).catch(error => console.log(error));
   }
 

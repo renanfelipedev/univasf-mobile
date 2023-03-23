@@ -4,14 +4,13 @@ import { ScrollView, Pressable, Text, Icon, Box, Heading, Stack, HStack, VStack 
 
 import api from '../../../services/api';
 
-export default function Paradas({ route, navigation }) {
+export default function Paradas({ route }) {
   const [paradas, setParadas] = useState([]);
   const { id, transportId } = route.params;
 
   const buscarParadas = () => {
     api.get(`/campuses/${id}/transports/${transportId}`)
       .then(({ data }) => {
-        console.log(data);
         setParadas(data);
       })
       .catch((error) => {
