@@ -51,7 +51,6 @@ export default function Calendario({ navigation }) {
       <CalendarList firstDay={0} markedDates={dates} onDayPress={(day) => {
         console.log(day);
       }} />
-      {/* <Fab renderInPortal={false} colorScheme='purple' size="lg" icon={<MaterialCommunityIcons name='plus' color='white' />} /> */}
     </SafeAreaView>
   );
 }

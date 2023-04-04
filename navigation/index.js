@@ -13,8 +13,6 @@ import Inicio from '../screens/Drawer/Inicio';
 import Eventos from '../screens/Drawer/Eventos';
 import Contatos from '../screens/Drawer/Contatos';
 import Calendarios from '../screens/Drawer/Calendarios';
-//import Transportes from '../screens/Drawer/Transporte';
-//import Restaurantes from '../screens/Drawer/Restaurantes';
 
 import Calendario from '../screens/Stack/Calendario';
 import Rotas from '../screens/Stack/Transportes/Rotas';
