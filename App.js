@@ -1,5 +1,6 @@
 import { NativeBaseProvider } from 'native-base';
 import { NavigationContainer } from '@react-navigation/native';
+import { CalendarProvider } from 'react-native-calendars'
 
 import { DrawerNavigation } from './navigation';
 
@@ -10,7 +11,10 @@ export default function App() {
   return (
     <NavigationContainer>
       <NativeBaseProvider>
-        <DrawerNavigation />
+        <CalendarProvider>
+          <DrawerNavigation />
+
+        </CalendarProvider>
       </NativeBaseProvider>
     </NavigationContainer>
   )
