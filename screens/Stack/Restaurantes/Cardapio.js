@@ -26,7 +26,7 @@ function CardapioDia(item) {
             <Box p='4' backgroundColor='white' borderRadius='8'>
               <Heading my='2'>Café da Manhã</Heading>
               {item.cafes?.map(cafe => (
-                <Text my='1' key={cafe.id}>{cafe.name}</Text>
+                <Text my='1' fontSize={16} key={cafe.id}>{cafe.name}</Text>
               ))}
             </Box>
           </>
@@ -37,7 +37,7 @@ function CardapioDia(item) {
             <Box p='4' backgroundColor='white' borderRadius='8'>
               <Heading my='2'>Almoço</Heading>
               {item.almocos?.map(almoco => (
-                <Box my='1' key={almoco.id}>{almoco.name}</Box>
+                <Text my='1' fontSize={16} key={almoco.id}>{almoco.name}</Text>
               ))}
             </Box>
           </>
@@ -48,7 +48,7 @@ function CardapioDia(item) {
             <Box p='4' backgroundColor='white' borderRadius='8'>
               <Heading my='2'>Jantar</Heading>
               {item.jantas?.map(janta => (
-                <Box my='1' key={janta.id}>{janta.name}</Box>
+                <Text my='1' fontSize={16} key={janta.id}>{janta.name}</Text>
               ))}
             </Box>
           </>

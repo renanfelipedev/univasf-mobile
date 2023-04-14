@@ -6,14 +6,11 @@ import { Box, Center, Spinner, Heading, Text } from 'native-base'
 
 import api from '../../../services/api';
 
+import Carregando from '../../../components/Carregando';
+
 const CalendarioVazio = () => (
   <Center height='80%' px='4' justifyContent="center" alignItems="center">
-    <Heading textAlign='center'>Os dias com marcação, possuem eventos cadastrados. Verifique!</Heading>
-  </Center>
-)
-const Carregando = () => (
-  <Center height='100%' mt='4' justifyContent="center" alignItems="center">
-    <Spinner size="lg" />
+    <Heading textAlign='center'>'Os dias com marcação, possuem eventos cadastrados. Verifique!</Heading>
   </Center>
 )
 
@@ -25,7 +22,7 @@ const Eventos = (item) => (
   </SafeAreaView>
 )
 
-export default function Calendario({ navigation, route }) {
+export default function Calendario() {
   const [eventos, setEventos] = useState([]);
   const [items, setItems] = useState();
   const [dates, setDates] = useState({});
@@ -33,19 +30,26 @@ export default function Calendario({ navigation, route }) {
 
   const evento = { marked: true, dotColor: '#075985', selectedColor: '#e0f2fe', selectedTextColor: '#0c4a6e' };
 
-  function buscarEventosPorDia(day) {
-    api.get(`/events`, { params: { day: day.dateString } })
-      .then(({ data }) => {
-        const newItems = formatarItens(data);
-        setItems(newItems)
-      })
-      .catch((error) => console.log(error));
+  async function buscarEventosPorDia(day) {
+    try {
+      const { data } = await api.get('calendar-events', { params: { day: day.dateString } });
+      getItems(data);
+    } catch (error) {
+
+    }
+
   }
 
-  function buscarEventos() {
-    api.get(`/events`)
-      .then(({ data }) => setEventos(data))
-      .catch((error) => console.log(error));
+  async function buscarEventos() {
+    try {
+      setIsLoading(true);
+      const { data } = await api.get('/calendar-events');
+      setEventos(data);
+    } catch (error) {
+
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   function formatarItens(eventos) {
@@ -64,28 +68,28 @@ export default function Calendario({ navigation, route }) {
   function formatarDatas(eventos) {
     const markedDates = {};
 
-    eventos.map(({ start_at, end_at, date }) => {
-      if (date) {
-        Object.assign(markedDates, {
-          [date]: evento
-        })
-      } else {
-        Object.assign(markedDates, {
-          [start_at]: evento
-        })
-      }
-
+    eventos.map(({ date }) => {
+      Object.assign(markedDates, {
+        [date]: evento
+      })
     });
 
     return markedDates;
   }
 
-  useEffect(() => {
-    setIsLoading(true);
-    buscarEventos();
+  function getItems(data) {
+    const newItems = formatarItens(data);
+    setItems(newItems)
+  }
+
+  function getDates() {
     const newDates = formatarDatas(eventos);
     setDates(newDates);
-    setIsLoading(false);
+  }
+
+  useEffect(() => {
+    buscarEventos();
+    getDates();
   }, []);
 
   return isLoading
@@ -95,12 +99,10 @@ export default function Calendario({ navigation, route }) {
         <Agenda
           onDayPress={(day) => buscarEventosPorDia(day)}
           firstDay={0}
-
-          renderEmptyData={isLoading ? Carregando : CalendarioVazio}
+          renderEmptyData={() => <CalendarioVazio isLoading={isLoading} />}
           renderItem={Eventos}
           markedDates={dates}
           items={items}
-
         />
       </SafeAreaView>
     );
