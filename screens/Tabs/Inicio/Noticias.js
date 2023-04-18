@@ -39,8 +39,8 @@ export default function Noticias() {
 
       <ScrollView refreshControl={<RefreshControl refreshing={isRefreshing} onRefresh={onRefresh} />}>
         {noticias.map(noticia => (
-          <Center my="8" key={noticia.id}>
-            <Box alignItems="center" >
+          <Center key={noticia.id}>
+            <Box alignItems="center" mt="4">
               <Box maxW="80" rounded="lg" overflow="hidden" borderColor="coolGray.300" borderWidth="1" p='2' backgroundColor='white' >
                 {noticia.image_url && (
                   <Box>
@@ -56,7 +56,7 @@ export default function Noticias() {
                   </Stack>
                   <Text textAlign={'justify'} fontWeight="400">{noticia.body}</Text>
                   <Divider />
-                  <Link isExternal href={noticia.full_slug}>Acesse aqui para mais informações no site</Link>
+                  {noticia.slug && <Link isExternal href={noticia.full_slug}>Acesse aqui para mais informações no site</Link>}
                 </Stack>
               </Box>
             </Box>

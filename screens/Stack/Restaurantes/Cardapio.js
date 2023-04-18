@@ -62,6 +62,7 @@ export default function Cardapio({ route }) {
   const { id } = route.params;
   const [items, setItems] = useState();
   const [isLoading, setIsLoading] = useState(false);
+  const [selectedDay, setSelectedDay] = useState();
 
   const formatItems = (meals) => {
     const items = {};
@@ -103,6 +104,8 @@ export default function Cardapio({ route }) {
       setIsLoading(false);
     }
   }
+
+  useEffect(() => { }, []);
 
   return <Agenda
     firstDay={0}

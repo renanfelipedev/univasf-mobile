@@ -8,6 +8,7 @@ export default function Eventos() {
 
   const buscarEventos = () => {
     api.get('/events').then(({ data }) => {
+      console.log(data);
       setEventos(data);
     }).catch(error => {
       console.log(error);
@@ -29,13 +30,13 @@ export default function Eventos() {
                 <Stack space={2}>
                   <Heading size="sm">{evento.title}</Heading>
                   {evento.description && (<Text fontSize="xs" textAlign="justify" >{evento.description}</Text>)}
-                  {evento.start_at && evento.end_at && (<Text fontSize="xs" fontWeight="500" >{evento.start_at} à {evento.end_at}</Text>)}
+                  {evento.start_at && evento.end_at && (<Text fontSize="xs" fontWeight="500" >{evento.formatted_start_at} à {evento.formatted_end_at}</Text>)}
                 </Stack>
               </Stack>
 
               <Box p={2} backgroundColor="gray.300">
-                <HStack alignItems="center">
-                  <Badge colorScheme="darkBlue" _text={{
+                <HStack alignItems="center" justifyContent='space-between'>
+                  <Badge mr='8' colorScheme="darkBlue" _text={{
                     color: "white"
                   }} variant="solid" rounded="4">
                     {evento.formatted_date}

@@ -42,7 +42,7 @@ export function DrawerNavigation() {
         drawerContent={(props) => <CustomDrawerContent {...props} />}
       >
         <Drawer.Screen name="Inicio" component={Inicio} />
-        <Drawer.Screen options={{ title: '' }} name="Fazer Login" component={Login} />
+        {/* <Drawer.Screen options={{ title: '' }} name="Fazer Login" component={Login} /> */}
         <Drawer.Screen name="Calendarios" component={CalendarioNavigation} />
         <Drawer.Screen name="Restaurantes" component={RestauranteNavigation} />
         <Drawer.Screen name="Transportes" component={TransporteNavigation} />

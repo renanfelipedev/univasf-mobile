@@ -28,7 +28,7 @@ export default function Calendario() {
   const [dates, setDates] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
-  const evento = { marked: true, dotColor: '#075985', selectedColor: '#e0f2fe', selectedTextColor: '#0c4a6e' };
+  const evento = { marked: true, dotColor: 'red', selectedColor: '#e0f2fe', selectedTextColor: '#0c4a6e' };
 
   async function buscarEventosPorDia(day) {
     try {
