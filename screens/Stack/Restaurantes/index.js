@@ -17,7 +17,7 @@ export default function Restaurantes({ navigation }) {
   }
 
   const handleOnPress = (campus) => {
-    console.log(campus)
+
   }
 
   useEffect(() => {

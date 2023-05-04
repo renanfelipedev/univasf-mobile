@@ -5,7 +5,9 @@ import { Text, Pressable, HStack, Icon } from 'native-base';
 const getIcon = (screenName) => {
   switch (screenName) {
     case 'Inicio':
-      return 'home';
+      return 'home-outline';
+    case 'Discente':
+      return 'school-outline';
     case 'Fazer Login':
       return 'login-variant';
     case 'Calendarios':

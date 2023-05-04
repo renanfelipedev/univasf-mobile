@@ -4,6 +4,8 @@ import { CalendarProvider } from 'react-native-calendars'
 
 import { DrawerNavigation } from './navigation';
 
+import AppProvider from './hooks';
+
 import './configs/calendar.config';
 
 
@@ -12,8 +14,9 @@ export default function App() {
     <NavigationContainer>
       <NativeBaseProvider>
         <CalendarProvider>
-          <DrawerNavigation />
-
+          <AppProvider>
+            <DrawerNavigation />
+          </AppProvider>
         </CalendarProvider>
       </NativeBaseProvider>
     </NavigationContainer>
