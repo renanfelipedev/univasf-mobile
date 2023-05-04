@@ -16,8 +16,10 @@ const AuthProvider = ({ children }) => {
         '@Univasf-Mobile:user'
       ]);
 
-      if (token && user) {
+
+      if (token[1] && user[1]) {
         setData({ token: token[1], user: JSON.parse(user[1]) });
+        api.defaults.headers.common.Authorization = `Bearer ${token[1]}`;
       }
 
       setLoading(false);
@@ -50,7 +52,7 @@ const AuthProvider = ({ children }) => {
   const isAuthenticated = !!data?.user && !!data?.token;
 
   return (
-    <AuthContext.Provider value={{ user: data?.user, loading, logIn, logOut, isAuthenticated }}>
+    <AuthContext.Provider value={{ user: data?.user, token: data?.token, loading, logIn, logOut, isAuthenticated }}>
       {children}
     </AuthContext.Provider>
   )

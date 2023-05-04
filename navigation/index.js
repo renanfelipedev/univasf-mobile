@@ -11,6 +11,9 @@ import Eventos from '../screens/Drawer/Eventos';
 import Contatos from '../screens/Drawer/Contatos';
 import Calendarios from '../screens/Drawer/Calendarios';
 
+import Discente from '../screens/Stack/Discente';
+import Vinculo from '../screens/Stack/Discente/Vinculo';
+
 import Calendario from '../screens/Stack/Calendario';
 import Rotas from '../screens/Stack/Transportes/Rotas';
 import Transportes from '../screens/Stack/Transportes';
@@ -95,7 +98,8 @@ export function TransporteNavigation() {
 export function DiscenteNavigation() {
   return (
     <Stack.Navigator>
-      <Stack.Screen options={{ headerShown: false }} name="VerDiscente" component={Transportes} />
+      <Stack.Screen options={{ headerShown: false }} name="VerDiscente" component={Discente} />
+      <Stack.Screen name="Vinculos" component={Vinculo} />
     </Stack.Navigator>
   );
 }

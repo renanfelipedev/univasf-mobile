@@ -32,6 +32,7 @@ export default function Login() {
                 onChangeText={(value) => setLogin(value)}
                 placeholder='Login'
                 variant="rounded"
+                autoCapitalize='none'
                 InputLeftElement={<Icon ml="4" color="muted.400" size={5} as={<MaterialCommunityIcons name="account" />} />}
               />
             </FormControl>
