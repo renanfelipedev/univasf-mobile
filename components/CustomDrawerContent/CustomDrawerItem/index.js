@@ -22,6 +22,8 @@ const getIcon = (screenName) => {
       return 'account-box-outline';
     case 'Sobre':
       return 'information-outline'
+    case 'Inovação':
+      return 'lightbulb-on-outline'
     default:
       return undefined;
   }

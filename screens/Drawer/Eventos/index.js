@@ -8,7 +8,7 @@ export default function Eventos() {
 
   const buscarEventos = () => {
     api.get('/events').then(({ data }) => {
-
+      setEventos(data);
     }).catch(error => {
       console.log(error);
     });

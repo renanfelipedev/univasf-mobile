@@ -21,6 +21,9 @@ import Restaurantes from '../screens/Stack/Restaurantes';
 import Paradas from '../screens/Stack/Transportes/Paradas';
 import Cardapio from '../screens/Stack/Restaurantes/Cardapio';
 
+import Inovacao from '../screens/Stack/Inovacao';
+import Perfil from '../screens/Stack/Inovacao/Perfil';
+
 import { useAuth } from '../hooks/auth';
 
 const Stack = createNativeStackNavigator();
@@ -60,6 +63,7 @@ export function DrawerNavigation() {
         <Drawer.Screen name="Restaurantes" component={RestauranteNavigation} />
         <Drawer.Screen name="Transportes" component={TransporteNavigation} />
         <Drawer.Screen name="Eventos" component={Eventos} />
+        <Drawer.Screen name="Inovação" component={InovacaoNavigation} />
         <Drawer.Screen name="Contatos" component={Contatos} />
         <Drawer.Screen name="Sobre" component={Sobre} />
       </Drawer.Navigator>
@@ -102,4 +106,13 @@ export function DiscenteNavigation() {
       <Stack.Screen name="Vinculos" component={Vinculo} />
     </Stack.Navigator>
   );
+}
+
+export function InovacaoNavigation() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen options={{ headerShown: false }} name="VerPesquisadores" component={Inovacao} />
+      <Stack.Screen name="Perfil" component={Perfil} />
+    </Stack.Navigator>
+  )
 }

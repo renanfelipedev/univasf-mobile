@@ -14,8 +14,11 @@ export default function Vinculo({ route }) {
   useEffect(() => {
     async function obterDisciplinas() {
       setLoading(true);
-      const { data } = await api.get(`/vinculos/${matricula}/historico`);
-      setVinculo(data);
+      api.get(`/vinculos/${matricula}/historico`)
+        .then(({ data }) => setVinculo(data))
+        .catch((error) => {
+          console.log(error);
+        });
       setLoading(false);
     }
 
