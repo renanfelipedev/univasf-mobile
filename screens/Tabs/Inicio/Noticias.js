@@ -35,30 +35,32 @@ export default function Noticias() {
 
   return isLoading ? <Carregando /> : (
     <SafeAreaView style={{ flex: 1, justifyContent: 'center' }}>
-      {noticias.length <= 0 && <Heading padding={8} fontSize={18} textAlign='center'>Nenhum comunicado cadastrado!</Heading>}
+      {noticias.length <= 0 && <Heading padding={8} fontSize={18} textAlign='center'>Nenhuma notícia cadastrada!</Heading>}
 
       <ScrollView refreshControl={<RefreshControl refreshing={isRefreshing} onRefresh={onRefresh} />}>
         {noticias.map(noticia => (
           <Center key={noticia.id}>
-            <Box alignItems="center" mt="4">
-              <Box maxW="80" rounded="lg" overflow="hidden" borderColor="coolGray.300" borderWidth="1" p='2' backgroundColor='white' >
-                {noticia.image_url && (
-                  <Box>
-                    <AspectRatio w='full' maxW='full' ratio={16 / 9}>
-                      <Image resizeMode="contain" source={{ uri: noticia.image_url }} alt="image" />
-                    </AspectRatio>
-                  </Box>
-                )}
-                <Stack p="4" space={3}>
-                  <Stack space={2}>
-                    <Heading size="md" ml="-1">{noticia.title}</Heading>
-                    {/* <Text fontSize="xs" fontWeight="500" ml="-0.5" mt="-1">The Silicon Valley of India.</Text> */}
-                  </Stack>
+            <Box m='2' rounded="lg" overflow="hidden" borderColor="coolGray.300" borderWidth="1" p='4' backgroundColor='white' >
+              {noticia.image_url && (
+                <Box>
+                  <AspectRatio w='full' maxW='full' ratio={16 / 9}>
+                    <Image resizeMode="contain" source={{ uri: noticia.image_url }} alt="image" />
+                  </AspectRatio>
+                </Box>
+              )}
+              <Stack p='1' space={3}>
+                <Box p='4'>
+                  <Heading size="md" ml="-1">{noticia.title}</Heading>
                   <Text textAlign={'justify'} fontWeight="400">{noticia.body}</Text>
-                  <Divider />
-                  {noticia.slug && <Link isExternal href={noticia.full_slug}>Acesse aqui para mais informações no site</Link>}
-                </Stack>
-              </Box>
+
+                  {noticia.slug && (
+                    <Box mt='4'>
+                      <Divider />
+                      <Link isExternal href={noticia.full_slug}>Acesse aqui para mais informações no site</Link>
+                    </Box>
+                  )}
+                </Box>
+              </Stack>
             </Box>
           </Center>
         ))}
